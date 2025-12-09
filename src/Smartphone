@@ -1,0 +1,51 @@
+public class Smartphone {
+   
+    private String brand;
+    private String model;
+    private int storageCapacity; 
+    private int batteryPercentage;
+    private boolean isOn;
+
+    public Smartphone(String brand, String model, int storageCapacity, int batteryPercentage) {
+        this.brand = brand;
+        this.model = model;
+        this.storageCapacity = storageCapacity;
+        this.batteryPercentage = batteryPercentage;
+        this.isOn = false; 
+    }
+
+
+
+   
+    public boolean turnOn() {
+        if (batteryPercentage > 0 && !isOn) {
+            isOn = true;
+            return true;
+        } else if (batteryPercentage == 0) {
+            return false;
+        }
+        return isOn; 
+    }
+
+   
+    public void turnOff() {
+        isOn = false;
+    }
+
+    
+    public void chargePhone(int chargeAmount) {
+        batteryPercentage += chargeAmount;
+        if (batteryPercentage > 100) {
+            batteryPercentage = 100;
+        }
+    }
+
+   
+    public String toString() {
+        return "Brand: " + brand +
+               ", Model: " + model +
+               ", Storage: " + storageCapacity +
+               "GB, Battery: " + batteryPercentage +
+               "%, On: " + isOn;
+    }
+}
